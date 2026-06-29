@@ -1,6 +1,8 @@
+"use client";
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Package, Car, Settings, Menu, X, Zap, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, Package, Car, Menu, Zap, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -21,16 +23,19 @@ const MainLayout = ({ children }: MainLayoutProps) => {
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full bg-slate-950 text-white p-6">
-      <div className="flex items-center gap-3 mb-12 px-2">
-        <div className="relative">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-orange-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-          <div className="relative bg-slate-900 p-2.5 rounded-xl">
-            <Zap className="w-6 h-6 text-orange-500 fill-orange-500" />
+      <div className="flex flex-col items-center gap-4 mb-12 px-2">
+        <Link to="/" className="group transition-transform hover:scale-105">
+          <div className="relative bg-white p-3 rounded-2xl shadow-2xl shadow-blue-500/20">
+            <img 
+              src="/logo.png" 
+              alt="المخزن" 
+              className="h-16 w-auto object-contain"
+            />
           </div>
-        </div>
-        <div>
-          <h1 className="text-2xl font-black tracking-tighter bg-gradient-to-l from-white to-slate-400 bg-clip-text text-transparent">المخزن</h1>
-          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Pro Inventory</p>
+        </Link>
+        <div className="text-center">
+          <h1 className="text-xl font-black tracking-tighter bg-gradient-to-l from-white to-slate-400 bg-clip-text text-transparent">المخزن الذكي</h1>
+          <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Pro Inventory System</p>
         </div>
       </div>
       
@@ -83,9 +88,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 z-40 flex items-center justify-between px-6">
         <div className="flex items-center gap-3">
-          <div className="bg-slate-900 p-2 rounded-xl">
-            <Zap className="w-5 h-5 text-orange-500 fill-orange-500" />
-          </div>
+          <img src="/logo.png" alt="المخزن" className="h-10 w-auto" />
           <span className="font-black text-xl text-slate-900 tracking-tighter">المخزن</span>
         </div>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
